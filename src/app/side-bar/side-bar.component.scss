@@ -3,9 +3,11 @@
     width: 15%;
     position: absolute;
     top: 0;
-    left: 10px;
+    left: 0;
     .hamburger {
         width: 30px;
+        left: 10px;
+        position: relative;
         &-line {
             display: block;
             height: 3px;
@@ -20,17 +22,24 @@
     .menu {
         left:0; 
         display: none;
+        height: 100%;
         &.active {
             display: block;
         }
-        .menu-items {
+        &-items {
             list-style: none;
-            padding-left: 0;
+            padding: 0;
+            margin: 0;
+            display : flex;
+            flex-flow: column nowrap;
+            height: 100%;
+            justify-content: center;
             &-item {
                 text-align: center;
                 border: 1px solid transparent;
                 padding: 20px;
                 background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#3493e4), to(#76ccf5));
+                flex: 0 1 5%
             }
         }
     }
