@@ -1,0 +1,32 @@
+#side-bar {
+    background: lightblue;
+    height: 100%;
+    width: 15%;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    .hamburger {
+        width: 30px;
+        &-line {
+            display: block;
+            height: 3px;
+            background: #000;
+            margin: 10px 0;
+        }
+    }
+
+
+    .menu {
+        left:0; 
+        .menu-items {
+            list-style: none;
+            padding-left: 0;
+            &-item {
+                text-align: center;
+                border: 1px solid transparent;
+                padding: 20px;
+                background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#3493e4), to(#76ccf5));
+            }
+        }
+    }   
+}
