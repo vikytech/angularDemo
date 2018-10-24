@@ -1,5 +1,4 @@
 #side-bar {
-    background: lightblue;
     height: 100%;
     width: 15%;
     position: absolute;
@@ -14,10 +13,16 @@
             margin: 10px 0;
         }
     }
-
+    &.active {
+        background: lightblue;
+    }
 
     .menu {
         left:0; 
+        display: none;
+        &.active {
+            display: block;
+        }
         .menu-items {
             list-style: none;
             padding-left: 0;
@@ -28,5 +33,5 @@
                 background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#3493e4), to(#76ccf5));
             }
         }
-    }   
+    }
 }
