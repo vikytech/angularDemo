@@ -4,10 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { AppRoutingModule, appRoutingComponents } from './app-routing.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent, appRoutingComponents, SideBarComponent
+    AppComponent, appRoutingComponents, SideBarComponent, PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

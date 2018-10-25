@@ -1,14 +1,13 @@
-<div id="side-bar" [ngClass]="{'active': showSideBar}" (mouseover)=toggleSideBar() (mouseout)=toggleSideBar()>
-  <div class="hamburger">
+<div id="side-bar" [ngClass]="{'active': showSideBar}">
+  <div class="hamburger" (click)=toggleSideBar()>
     <span class="hamburger-line"></span>
     <span class="hamburger-line"></span>
     <span class="hamburger-line"></span>
   </div>
   <nav class="menu" [ngClass]="{'active': showSideBar}">
     <ul class="menu-items">
-      <li class="menu-items-item">Home</li>
-      <li class="menu-items-item"><a routerLink='/door'>Door </a></li>
-      <li class="menu-items-item"><a routerLink='/main-door'>Main Door </a></li>
+      <a routerLink='/door'><li (click)=toggleSideBar() class="menu-items-item">Door</li></a>
+      <a routerLink='/main-door'><li (click)=toggleSideBar() class="menu-items-item">Main Door</li></a>
     </ul>
   </nav>
 </div>
