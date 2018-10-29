@@ -1,15 +1,20 @@
 <div id="registration-form">
-  <form>
+
+ <form #f="ngForm"> 
       <div *ngFor="let form of formDetails">
-        <div [ngSwitch]="form.formType">
+        <div [ngSwitch]="form.type">
           <div *ngSwitchCase="'text'">
-            <label> {{form.formLabel}} </label>
-            <input type="{{form.formType}}"/>
+            <label> {{form.label | titlecase }} </label>
+            <input name="{{form.label}}" type="{{form.type}}" [ngModel]="userDetails[form.label]"/>
+          </div>
+          <div *ngSwitchCase="'number'">
+            <label> {{form.label | titlecase}} </label>
+            <input name="{{form.label}}" type="{{form.type}}" [ngModel]="userDetails[form.label]"/>
           </div>
           <div *ngSwitchCase="'dropdown'">
-              <label> {{form.formLabel}} </label>
-              <select>
-                  <option *ngFor="let opt of form.options">
+              <label> {{form.label  | titlecase}} </label>
+              <select name="{{form.label}}" [ngModel]="userDetails[form.label]">
+                  <option *ngFor="let opt of form.options" value="{{opt}}">
                     {{opt}}
                   </option>
               </select>

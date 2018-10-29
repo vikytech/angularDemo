@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { User } from '../user';
 
 @Injectable({
   providedIn: 'root'
@@ -10,28 +11,28 @@ export class FormDetailsProviderService {
   getFormDetails(){
    return [
        {
-        "formLabel": "name",
-        "dataType"  : "String", 
-        "formType"  : "text"
+        "label": "name",
+        "type"  : "text"
       },
       {
-        "formLabel":"age",
-        "dataType": "Number", 
-        "formType": "text"
+        "label":"age",
+        "type": "number"
       },
       {
-        "formLabel":"gender",
-        "dataType": "String", 
-        "formType": "dropdown",
+        "label":"gender",
+        "type": "dropdown",
         "options" : [
-          "male","female" 
+          "Male","Female" 
         ]
       },
       {
-        "formLabel":"description",
-        "dataType": "String", 
-        "formType": "text"
+        "label":"description",
+        "type": "text"
       },
     ]
+  }
+
+  getUserDetail() {
+    return new User("Viky", 23, "Male", "Very nice");
   }
 }

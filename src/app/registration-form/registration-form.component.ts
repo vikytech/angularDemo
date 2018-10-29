@@ -10,10 +10,12 @@ import { FormDetailsProviderService } from './form-details-provider.service';
 export class RegistrationFormComponent implements OnInit {
 
   public formDetails=[];
+  public userDetails={};
 
   constructor( private service : FormDetailsProviderService) { }
 
   ngOnInit() {
     this.formDetails = this.service.getFormDetails();
+    this.userDetails = this.service.getUserDetail();
   }
 }
