@@ -1,27 +1,20 @@
 <div id="registration-form">
-
-  <div class="form-element">
-      <label> Name: 
-         <input type="text" [formControl]="name">
-     </label>
-   </div>
- 
-  <div class="form-element">
-    <label> Age: 
-      <input type="text" [formControl]="age">
-    </label>
-  </div>
- 
-  <div class="form-element">
-    <label> Gender: 
-      <input type="text" [formControl]="gender">
-    </label>
-  </div>
- 
-  <div class="form-element">
-    <label> Description: 
-       <input type="text" [formControl]="description">
-    </label>
-  </div>
-  
+  <form>
+      <div *ngFor="let form of formDetails">
+        <div [ngSwitch]="form.formType">
+          <div *ngSwitchCase="'text'">
+            <label> {{form.formLabel}} </label>
+            <input type="{{form.formType}}"/>
+          </div>
+          <div *ngSwitchCase="'dropdown'">
+              <label> {{form.formLabel}} </label>
+              <select>
+                  <option *ngFor="let opt of form.options">
+                    {{opt}}
+                  </option>
+              </select>
+          </div>
+        </div>
+      </div>
+  </form>
 </div>

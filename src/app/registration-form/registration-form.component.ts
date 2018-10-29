@@ -1,22 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-
+import { FormDetailsProviderService } from './form-details-provider.service';
 
 @Component({
   selector: 'app-registration-form',
   templateUrl: './registration-form.component.html',
-  styleUrls: ['./registration-form.component.scss']
+  styleUrls: ['./registration-form.component.scss'],
+  providers: [ FormDetailsProviderService]
 })
 export class RegistrationFormComponent implements OnInit {
 
-  name = new FormControl('');
-  age = new FormControl('');
-  gender = new FormControl('');
-  description = new FormControl('');
+  public formDetails=[];
 
-  constructor() { }
+  constructor( private service : FormDetailsProviderService) { }
 
   ngOnInit() {
+    this.formDetails = this.service.getFormDetails();
   }
-
 }

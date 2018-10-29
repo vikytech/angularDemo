@@ -7,6 +7,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { AppRoutingModule, appRoutingComponents } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { FormDetailsProviderService } from './registration-form/form-details-provider.service';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { RegistrationFormComponent } from './registration-form/registration-form
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ FormDetailsProviderService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
