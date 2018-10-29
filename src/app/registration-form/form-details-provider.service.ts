@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { User } from '../user';
 
 @Injectable({
@@ -6,33 +8,77 @@ import { User } from '../user';
 })
 export class FormDetailsProviderService {
 
-  constructor() { }
+  URL= 'http://3c3f0a26.ngrok.io/users/1';
+  private user: User;
 
-  getFormDetails(){
-   return [
-       {
-        "label": "name",
-        "type"  : "text"
-      },
-      {
-        "label":"age",
-        "type": "number"
-      },
-      {
-        "label":"gender",
-        "type": "dropdown",
-        "options" : [
-          "Male","Female" 
-        ]
-      },
-      {
-        "label":"description",
-        "type": "text"
-      },
-    ]
+  constructor(public _httpClient : HttpClient) {
   }
 
-  getUserDetail() {
-    return new User("Viky", 23, "Male", "Very nice");
+  public template =   { "journalist": [
+    {
+     "label": "firstName",
+     "type"  : "text"
+   },
+    {
+     "label": "lastName",
+     "type"  : "text"
+   },
+   {
+     "label":"age",
+     "type": "number"
+   },
+   {
+     "label":"gender",
+     "type": "dropdown",
+     "options" : [
+       "Male","Female" 
+     ]
+   },
+   {
+     "label":"description",
+     "type": "text"
+   },
+   {
+     "label":"magazine",
+     "type":"text"
+   }
+ ],
+  "athelette": [
+    {
+     "label": "firstName",
+     "type"  : "text"
+   },
+   {
+    "label": "lastName",
+    "type"  : "text"
+  },
+   {
+     "label":"age",
+     "type": "number"
+   },
+   {
+     "label":"gender",
+     "type": "dropdown",
+     "options" : [
+       "Male","Female" 
+     ]
+   },
+   {
+     "label":"description",
+     "type": "text"
+   },
+   {
+     "label":"height",
+     "type":"number"
+   }
+ ]
+}
+
+  getFormDetails(functionType: string){
+    return this.template[functionType]
+  }
+
+  getUserDetail(): Observable<any>{      
+    return this._httpClient.get(this.URL);
   }
 }

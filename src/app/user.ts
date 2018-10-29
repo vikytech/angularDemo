@@ -1,8 +1,11 @@
 export class User {
     constructor(
-        public name: String,
+        public firstName: String,
+        public lastName: String,
         public age : Number,
+        public id : String,
         public gender: String,
-        public description: String
+        public functionType : String,
+        public formData : FormData
     ){}
 }

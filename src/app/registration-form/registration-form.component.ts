@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormDetailsProviderService } from './form-details-provider.service';
+import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-registration-form',
@@ -15,7 +16,11 @@ export class RegistrationFormComponent implements OnInit {
   constructor( private service : FormDetailsProviderService) { }
 
   ngOnInit() {
-    this.formDetails = this.service.getFormDetails();
-    this.userDetails = this.service.getUserDetail();
+    this.service.getUserDetail().subscribe(
+      data => {console.log(data); this.userDetails=data; this.formDetails = this.service.getFormDetails(this.userDetails['functionType']);
+      console.log(this.formDetails['formData']);
+    }
+    );
+     
   }
 }

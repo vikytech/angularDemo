@@ -8,6 +8,7 @@ import { AppRoutingModule, appRoutingComponents } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { FormDetailsProviderService } from './registration-form/form-details-provider.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FormDetailsProviderService } from './registration-form/form-details-pro
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [ FormDetailsProviderService ],
   bootstrap: [AppComponent]
