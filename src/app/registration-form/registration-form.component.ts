@@ -16,11 +16,11 @@ export class RegistrationFormComponent implements OnInit {
   constructor( private service : FormDetailsProviderService) { }
 
   ngOnInit() {
-    this.service.getUserDetail().subscribe(
-      data => {console.log(data); this.userDetails=data; this.formDetails = this.service.getFormDetails(this.userDetails['functionType']);
-      console.log(this.formDetails['formData']);
-    }
-    );
-     
+     this.service.getUserDetail().subscribe(
+       data => {console.log(data); this.userDetails=data; this.formDetails = this.service.getFormDetails(this.userDetails['functionType']);
+       console.log(this.userDetails['formData']);
+       console.log(this.formDetails['formData']);
+     }
+     );
   }
 }

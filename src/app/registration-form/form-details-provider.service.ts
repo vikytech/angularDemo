@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { User } from '../user';
 
 @Injectable({
@@ -9,7 +10,6 @@ import { User } from '../user';
 export class FormDetailsProviderService {
 
   URL= 'http://localhost:3000/users/1';
-  private user: User;
 
   constructor(public _httpClient : HttpClient) {
   }
@@ -78,7 +78,8 @@ export class FormDetailsProviderService {
     return this.template[functionType]
   }
 
-  getUserDetail(): Observable<any>{      
-    return this._httpClient.get(this.URL);
+  getUserDetail(): Observable<User> {
+      return this._httpClient.get(this.URL).pipe(
+        map(data => new User(data)));
   }
 }
