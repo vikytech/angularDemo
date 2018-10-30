@@ -1,0 +1,20 @@
+<div *ngFor="let form of template">
+        <div [ngSwitch]="form.type">
+          <div *ngSwitchCase="'text'" class="form-element">
+            <label> {{form.label | titlecase }} </label>
+            <input name="{{form.label}}" type="{{form.type}}"  [ngModel]="data[form.label]"/>
+          </div>
+          <div *ngSwitchCase="'number'" class="form-element">
+            <label> {{form.label | titlecase}} </label>
+            <input name="{{form.label}}" type="{{form.type}}"  [ngModel]="data[form.label]"/>
+          </div>
+          <div *ngSwitchCase="'dropdown'" class="form-element">
+              <label> {{form.label  | titlecase}} </label>
+              <select name="{{form.label}}"  [ngModel]="data[form.label]">
+                  <option *ngFor="let opt of form.options" value="{{opt}}">
+                    {{opt}}
+                  </option>
+              </select>
+          </div>
+        </div>
+    </div>

@@ -14,68 +14,50 @@ export class FormDetailsProviderService {
   constructor(public _httpClient : HttpClient) {
   }
 
-  public template =   { "journalist": [
+  public template =   { 
+    "common":[
+      {
+        "label": "firstName",
+        "type"  : "text"
+      },
+       {
+        "label": "lastName",
+        "type"  : "text"
+      },
+      {
+        "label":"age",
+        "type": "number"
+      },
+      {
+        "label":"gender",
+        "type": "dropdown",
+        "options" : [
+          "Male","Female" 
+        ]
+      },
+      {
+        "label":"description",
+        "type": "text"
+      },
+    ],
+    "journalist": [
     {
-     "label": "firstName",
-     "type"  : "text"
-   },
-    {
-     "label": "lastName",
-     "type"  : "text"
-   },
-   {
-     "label":"age",
-     "type": "number"
-   },
-   {
-     "label":"gender",
-     "type": "dropdown",
-     "options" : [
-       "Male","Female" 
-     ]
-   },
-   {
-     "label":"description",
-     "type": "text"
-   },
-   {
-     "label":"magazine",
-     "type":"text"
-   }
- ],
-  "athlete": [
-    {
-     "label": "firstName",
-     "type"  : "text"
-   },
-   {
-    "label": "lastName",
-    "type"  : "text"
-  },
-   {
-     "label":"age",
-     "type": "number"
-   },
-   {
-     "label":"gender",
-     "type": "dropdown",
-     "options" : [
-       "Male","Female" 
-     ]
-   },
-   {
-     "label":"description",
-     "type": "text"
-   },
-   {
-     "label":"height",
-     "type":"number"
-   }
- ]
+        "label":"magazine",
+        "type":"text"
+    }
+    ],
+    "athlete": [
+      {
+          "label":"height",
+          "type":"number"
+      }
+    ]
 }
-
   getFormDetails(functionType: string){
     return this.template[functionType]
+  }
+  getCommonDetails(){
+    return this.template["common"]
   }
 
   getUserDetail(): Observable<User> {

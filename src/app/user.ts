@@ -5,7 +5,7 @@
 //         public age : Number,
 //         public id : String,
 //         public gender: String,
-//         public functionType : String,
+//         public functionId : String,
 //         public formData : FormData
 //     ){}
 // }
@@ -16,7 +16,7 @@ export class User {
     lastName: String;
     age : Number;
     gender: String;
-    functionType : String;
+    functionId : String;
     formData : FormData;
     constructor(user){
         this.id = user.id;
@@ -24,7 +24,7 @@ export class User {
         this.lastName = user.lastName;
         this.age = user.age;
         this.gender = user.gender;
-        this.functionType = user.functionType;
+        this.functionId = user.functionId;
         this.formData = user.formData;
     }
 }

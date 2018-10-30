@@ -1,25 +1,7 @@
 <div id="registration-form">
 
  <form #f="ngForm"> 
-      <div *ngFor="let form of formDetails">
-        <div [ngSwitch]="form.type">
-          <div *ngSwitchCase="'text'" class="form-element">
-            <label> {{form.label | titlecase }} </label>
-            <input name="{{form.label}}" type="{{form.type}}"  [ngModel]="userDetails[form.label]"/>
-          </div>
-          <div *ngSwitchCase="'number'" class="form-element">
-            <label> {{form.label | titlecase}} </label>
-            <input name="{{form.label}}" type="{{form.type}}"  [ngModel]="userDetails[form.label]"/>
-          </div>
-          <div *ngSwitchCase="'dropdown'" class="form-element">
-              <label> {{form.label  | titlecase}} </label>
-              <select name="{{form.label}}"  [ngModel]="userDetails[form.label]">
-                  <option *ngFor="let opt of form.options" value="{{opt}}">
-                    {{opt}}
-                  </option>
-              </select>
-          </div>
-        </div>
-      </div>
+   <form-generator [template]="formDetails" [data]="userDetails"></form-generator>
+   <form-generator [template]="functionDetails" [data]="userDetails.formData"></form-generator>
   </form>
 </div>

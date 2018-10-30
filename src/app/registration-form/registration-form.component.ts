@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormDetailsProviderService } from './form-details-provider.service';
 import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 
@@ -11,15 +11,16 @@ import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 export class RegistrationFormComponent implements OnInit {
 
   public formDetails=[];
+  public functionDetails=[];
   public userDetails={};
 
   constructor( private service : FormDetailsProviderService) { }
 
   ngOnInit() {
      this.service.getUserDetail().subscribe(
-       data => {console.log(data); this.userDetails=data; this.formDetails = this.service.getFormDetails(this.userDetails['functionType']);
-       console.log(this.userDetails['formData']);
-       console.log(this.formDetails['formData']);
+       data => { this.userDetails=data;
+         this.functionDetails = this.service.getFormDetails(this.userDetails['functionId']);
+         this.formDetails = this.service.getCommonDetails();
      }
      );
   }
