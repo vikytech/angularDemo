@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Srima",
+      "age": 32,
+      "gender": "Female",
+      "lastName": "Dunno",
+      "functionType": "journalist",
+      "formData": {
+        "magazine": "Dance India Dance"
+      }
+    },
+    {
+      "id": 2,
+      "firstName": "Viky",
+      "age": 24,
+      "gender": "Male",
+      "lastName": "Tech",
+      "functionType": "athlete",
+      "formData": {
+        "height": 6.1
+      }
+    }
+  ]
+}

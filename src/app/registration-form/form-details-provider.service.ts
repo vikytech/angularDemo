@@ -8,7 +8,7 @@ import { User } from '../user';
 })
 export class FormDetailsProviderService {
 
-  URL= 'http://3c3f0a26.ngrok.io/users/1';
+  URL= 'http://localhost:3000/users/1';
   private user: User;
 
   constructor(public _httpClient : HttpClient) {
