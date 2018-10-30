@@ -6,7 +6,7 @@
       "age": 32,
       "gender": "Female",
       "lastName": "Dunno",
-      "functionType": "journalist",
+      "functionId": "journalist",
       "formData": {
         "magazine": "Dance India Dance"
       }
@@ -17,7 +17,7 @@
       "age": 24,
       "gender": "Male",
       "lastName": "Tech",
-      "functionType": "athlete",
+      "functionId": "athlete",
       "formData": {
         "height": 6.1
       }

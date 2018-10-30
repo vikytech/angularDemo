@@ -9,7 +9,7 @@ import { User } from '../user';
 })
 export class FormDetailsProviderService {
 
-  URL= 'http://localhost:3000/users/1';
+  URL= 'http://localhost:3000/users/2';
 
   constructor(public _httpClient : HttpClient) {
   }
@@ -43,7 +43,7 @@ export class FormDetailsProviderService {
      "type":"text"
    }
  ],
-  "athelette": [
+  "athlete": [
     {
      "label": "firstName",
      "type"  : "text"
