@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../user';
-import { Validators } from '@angular/forms';
+import { Validators, AbstractControl } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -50,7 +50,7 @@ export class FormDetailsProviderService {
       {
         "label":"email",
         "type": "text",
-        "validation": [{"pattern": "[0-3]{1,3}", "required": true}]
+        "validation": [{"required": true, "emailValidation": true}]
       },
       {
           "label":"height",
@@ -82,8 +82,17 @@ export class FormDetailsProviderService {
         if(key === "minLength") validators.push(Validators.minLength(validation[key]));
         if(key === "maxLength") validators.push(Validators.maxLength(validation[key]));
         if(key === "pattern") validators.push(Validators.pattern(validation[key]));
+        if(key === "emailValidation") validators.push(this.emailValidator);
       }
     });
     return Validators.compose(validators);
+  }
+
+  emailValidator(control : AbstractControl): {[key : string] : any} | null {
+    let forbiddenEmails = ["google@google.com", "yahoo@yahoo.com", "flipkart@flipkart.com", "amazon@amazon.com"];
+    if(forbiddenEmails.indexOf(control.value) > -1){
+      return { 'forbiddenEmail' : { value : control.value}} ;
+    }
+    return null;
   }
 }
