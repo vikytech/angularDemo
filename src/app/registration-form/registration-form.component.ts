@@ -1,6 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { FormDetailsProviderService } from './form-details-provider.service';
-import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-registration-form',
@@ -20,7 +19,7 @@ export class RegistrationFormComponent implements OnInit {
      this.service.getUserDetail().subscribe(
        data => { this.userDetails=data;
          this.functionDetails = this.service.getFormDetails(this.userDetails['functionId']);
-         this.formDetails = this.service.getCommonDetails();
+         this.formDetails = this.service.getPersonalDetails();
      }
      );
   }

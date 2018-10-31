@@ -5,6 +5,8 @@ import { MainDoorComponent} from './main-door/main-door.component'
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { FormGeneratorComponent } from './form-generator/form-generator.component';
+import { TextBoxComponent } from './FormElements/text-box.component';
+import { DropdownComponent } from './FormElements/dropdown.component';
 
 const routes: Routes = [
   { path: '' , redirectTo: 'door', pathMatch: 'full' },
@@ -22,4 +24,12 @@ const routes: Routes = [
   declarations: []
 })
 export class AppRoutingModule { }
-export const appRoutingComponents = [ DoorComponent, MainDoorComponent, PageNotFoundComponent, RegistrationFormComponent, FormGeneratorComponent]
+export const appRoutingComponents = [
+  DoorComponent,
+  MainDoorComponent,
+  PageNotFoundComponent,
+  RegistrationFormComponent,
+  FormGeneratorComponent,
+  TextBoxComponent,
+  DropdownComponent
+]

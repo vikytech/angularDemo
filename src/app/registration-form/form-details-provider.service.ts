@@ -15,7 +15,7 @@ export class FormDetailsProviderService {
   }
 
   public template =   { 
-    "common":[
+    "personalData":[
       {
         "label": "firstName",
         "type"  : "text"
@@ -34,11 +34,7 @@ export class FormDetailsProviderService {
         "options" : [
           "Male","Female" 
         ]
-      },
-      {
-        "label":"description",
-        "type": "text"
-      },
+      }
     ],
     "journalist": [
     {
@@ -53,11 +49,11 @@ export class FormDetailsProviderService {
       }
     ]
 }
-  getFormDetails(functionType: string){
-    return this.template[functionType]
+  getFormDetails(functionId: string){
+    return this.template[functionId]
   }
-  getCommonDetails(){
-    return this.template["common"]
+  getPersonalDetails(){
+    return this.template["personalData"]
   }
 
   getUserDetail(): Observable<User> {
