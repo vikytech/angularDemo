@@ -45,7 +45,11 @@ export class FormDetailsProviderService {
     "athlete": [
       {
           "label":"height",
-          "type":"number"
+          "type": "number"
+      },
+      {
+        "label": "weight",
+        "type": "number"
       }
     ]
 }

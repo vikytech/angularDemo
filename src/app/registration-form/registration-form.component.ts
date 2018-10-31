@@ -13,8 +13,8 @@ export class RegistrationFormComponent implements OnInit {
   public formDetails=[];
   public functionDetails=[];
   public userDetails={};
-  formGroup1: FormGroup;
-  formGroup2: FormGroup;
+  public formGroup1: FormGroup;
+  public formGroup2: FormGroup;
   
   constructor( private service : FormDetailsProviderService) { }
   
@@ -22,17 +22,17 @@ export class RegistrationFormComponent implements OnInit {
     this.service.getUserDetail().subscribe(
       data => { this.userDetails=data;
         this.functionDetails = this.service.getFormDetails(this.userDetails['functionId']);
-        this.formDetails = this.service.getPersonalDetails();
-        this.formGroup1 = this.getFormGroup(this.formDetails);
-        this.formGroup2 = this.getFormGroup(this.functionDetails);
+        this.formDetails = this.service.getPersonalDetails();        
+        this.formGroup1 = this.getFormGroup(this.formDetails, this.userDetails);
+        this.formGroup2 = this.getFormGroup(this.functionDetails, this.userDetails['formData']);
      }
      );
   }
 
-  getFormGroup(details){
-    let group = {};
-    for(let form of details){
-      group[form.label]= new FormControl(this.userDetails['']);
+  getFormGroup(template, data){
+    const group = {};
+    for(let form of template) {
+      group[form.label]=new FormControl(data[form.label]);
     }
     return new FormGroup(group);
 

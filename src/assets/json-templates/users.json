@@ -19,7 +19,8 @@
       "lastName": "Tech",
       "functionId": "athlete",
       "formData": {
-        "height": 6.1
+        "height": 6.1,
+        "weight": 11
       }
     }
   ]
