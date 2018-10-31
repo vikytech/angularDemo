@@ -1,13 +1,8 @@
 <div *ngFor="let form of template">
-        <div [ngSwitch]="form.type">
-          <div *ngSwitchCase="'text'"  class="form-element">
-            <textBox [template]="form" [data]="data"></textBox>
-          </div>
-          <div *ngSwitchCase="'number'" class="form-element">
-                <textBox  [template]="form" [data]="data"></textBox>
-          </div>
-          <div *ngSwitchCase="'dropdown'" class="form-element">
-                <dropdown  [template]="form" [data]="data"></dropdown>
-          </div>
-        </div>
+    <div *ngIf="form.type=='text' || form.type=='number'"  class="form-element">
+    <textBox [template]="form" [data]="data"></textBox>
     </div>
+    <div *ngIf="form.type=='dropdown'" class="form-element">
+        <dropdown  [template]="form" [data]="data"></dropdown>
+    </div>
+</div>
