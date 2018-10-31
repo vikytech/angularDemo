@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { FormDetailsProviderService } from './form-details-provider.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-registration-form',
@@ -15,13 +16,16 @@ export class RegistrationFormComponent implements OnInit {
   public userDetails={};
   public formGroup1: FormGroup;
   public formGroup2: FormGroup;
+  public functionId;
   
-  constructor( private service : FormDetailsProviderService) { }
+  constructor( private service : FormDetailsProviderService, private route: ActivatedRoute) { }
   
   ngOnInit() {
+    this.route.queryParams.subscribe((params) => this.functionId = params['function']);
+    console.log(this.functionId);
     this.service.getUserDetail().subscribe(
       data => { this.userDetails=data;
-        this.functionDetails = this.service.getFormDetails(this.userDetails['functionId']);
+        this.functionDetails = this.service.getFormDetails(this.functionId);
         this.formDetails = this.service.getPersonalDetails();        
         this.formGroup1 = this.getFormGroup(this.formDetails, this.userDetails);
         this.formGroup2 = this.getFormGroup(this.functionDetails, this.userDetails['formData']);
