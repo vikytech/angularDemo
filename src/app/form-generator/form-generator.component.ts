@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'form-generator',
@@ -8,6 +9,7 @@ export class FormGeneratorComponent implements OnInit {
 
   @Input() public template = [];
   @Input() public data= {};
+  @Input() public formG: FormGroup;
 
   constructor() { }
 

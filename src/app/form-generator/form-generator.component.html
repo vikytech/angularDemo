@@ -1,8 +1,8 @@
-<div *ngFor="let form of template">
+<div *ngFor="let form of template" [formGroup]="formG">
     <div *ngIf="form.type=='text' || form.type=='number'"  class="form-element">
-    <textBox [template]="form" [data]="data"></textBox>
+    <textBox [formG]="formG" [template]="form" [data]="data"></textBox>
     </div>
     <div *ngIf="form.type=='dropdown'" class="form-element">
-        <dropdown  [template]="form" [data]="data"></dropdown>
+        <dropdown [formG]="formG" [template]="form" [data]="data"></dropdown>
     </div>
 </div>

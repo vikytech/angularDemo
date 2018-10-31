@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { FormDetailsProviderService } from './form-details-provider.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-registration-form',
@@ -12,15 +13,29 @@ export class RegistrationFormComponent implements OnInit {
   public formDetails=[];
   public functionDetails=[];
   public userDetails={};
-
+  formGroup1: FormGroup;
+  formGroup2: FormGroup;
+  
   constructor( private service : FormDetailsProviderService) { }
-
+  
   ngOnInit() {
-     this.service.getUserDetail().subscribe(
-       data => { this.userDetails=data;
-         this.functionDetails = this.service.getFormDetails(this.userDetails['functionId']);
-         this.formDetails = this.service.getPersonalDetails();
+    this.service.getUserDetail().subscribe(
+      data => { this.userDetails=data;
+        this.functionDetails = this.service.getFormDetails(this.userDetails['functionId']);
+        this.formDetails = this.service.getPersonalDetails();
+        this.formGroup1 = this.getFormGroup(this.formDetails);
+        this.formGroup2 = this.getFormGroup(this.functionDetails);
      }
      );
   }
+
+  getFormGroup(details){
+    let group = {};
+    for(let form of details){
+      group[form.label]= new FormControl(this.userDetails['']);
+    }
+    return new FormGroup(group);
+
+  }
+
 }

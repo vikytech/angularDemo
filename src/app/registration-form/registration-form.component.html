@@ -1,7 +1,6 @@
 <div id="registration-form">
-
- <form #f="ngForm"> 
-   <form-generator [template]="formDetails" [data]="userDetails"></form-generator>
-   <form-generator [template]="functionDetails" [data]="userDetails.formData"></form-generator>
-  </form>
+    <form>
+      <form-generator [formG]="formGroup1" [template]="formDetails" [data]="userDetails"></form-generator>
+      <form-generator [formG]="formGroup2" [template]="functionDetails" [data]="userDetails.formData"></form-generator>
+    </form>
 </div>
