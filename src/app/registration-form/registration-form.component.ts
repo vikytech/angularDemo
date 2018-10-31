@@ -31,8 +31,8 @@ export class RegistrationFormComponent implements OnInit {
 
   getFormGroup(template, data){
     const group = {};
-    for(let form of template) {
-      group[form.label]=new FormControl(data[form.label]);
+    for(let element of template) {
+      group[element.label]=new FormControl(data[element.label], this.service.getValidation(element.validation));
     }
     return new FormGroup(group);
 
