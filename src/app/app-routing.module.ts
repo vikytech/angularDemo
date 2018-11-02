@@ -5,8 +5,8 @@ import { MainDoorComponent} from './main-door/main-door.component'
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { FormGeneratorComponent } from './form-generator/form-generator.component';
-import { TextBoxComponent } from './FormElements/text-box.component';
-import { DropdownComponent } from './FormElements/dropdown.component';
+import { TextBoxComponent } from './text-box/text-box.component';
+import { DropdownComponent } from './drop-down/dropdown.component';
 import { RequestComponent } from './request/request.component';
 import { JournalistFormComponent } from './journalist-form/journalist-form.component';
 import { AthleteFormComponent } from './athlete-form/athlete-form.component';

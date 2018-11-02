@@ -1,0 +1,8 @@
+<div class="field" [formGroup]="formG">
+    <label class="label"> {{template.label | titlecase }} </label>
+    <div class="control">
+      <input class="input"
+      formControlName="{{template.label}}"
+      [type]="template.type"/>
+    </div>
+  </div>

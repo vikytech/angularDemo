@@ -3,15 +3,7 @@ import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'textBox',
-  template: `
-  <div class="field" [formGroup]="formG">
-    <label class="label"> {{template.label | titlecase }} </label>
-    <div class="control">
-      <input class="input" formControlName="{{template.label}}" [type]="template.type"/>
-    </div>
-  </div>
-  `,
-  styles: []
+  templateUrl: '../text-box/text-box.component.html'
 })
 export class TextBoxComponent implements OnInit {
 
