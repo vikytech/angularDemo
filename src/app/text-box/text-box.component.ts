@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'textBox',
-  templateUrl: '../text-box/text-box.component.html'
+  templateUrl: 'text-box.component.html'
 })
 export class TextBoxComponent implements OnInit {
 

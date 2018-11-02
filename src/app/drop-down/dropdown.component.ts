@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'dropdown',
-  templateUrl: '../drop-down/dropdown.component.html'
+  templateUrl: 'dropdown.component.html'
 })
 export class DropdownComponent implements OnInit {
 

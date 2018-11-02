@@ -1,9 +1,12 @@
 <div class="field" [formGroup]="formG">
-    <label class="label"> {{template.label | titlecase }} </label>
-    <div class="control">
-      <input class="input"
-      formControlName="{{template.label}}"
-      id="{{template.label}}"
-      [type]="template.type"/>
-    </div>
+  <label class="label"> {{template.label  | titlecase}} </label>
+  <div class="control">
+    <select class="select"
+        formControlName="{{template.label}}"
+        id="{{template.label}}">
+        <option *ngFor="let opt of template.options" value="{{opt}}">
+          {{opt}}
+        </option>
+    </select>
   </div>
+</div>
