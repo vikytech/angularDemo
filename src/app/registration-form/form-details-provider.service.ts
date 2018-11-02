@@ -11,8 +11,6 @@ import { getCustomValidator } from '../validators/helper';
 })
 export class FormDetailsProviderService {
 
-  URL= 'http://localhost:3000/users/2';
-
   constructor(public _httpClient : HttpClient) {
   }
 
@@ -70,8 +68,9 @@ export class FormDetailsProviderService {
     return this.template["personalData"]
   }
 
-  getUserDetail(): Observable<User> {
-      return this._httpClient.get(this.URL).pipe(
+  getUserDetail(userId : string): Observable<User> {
+     let URL = "http://localhost:3000/users/"+userId;
+      return this._httpClient.get(URL).pipe(
         map(data => new User(data)));
   }
 

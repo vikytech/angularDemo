@@ -16,13 +16,15 @@ export class RegistrationFormComponent implements OnInit {
   public userDetails={};
   public formGroup1: FormGroup;
   public formGroup2: FormGroup;
-  public functionId;
+  public userId;
   
   constructor( private service : FormDetailsProviderService, private route: ActivatedRoute) { }
   
   ngOnInit() {
-    this.service.getUserDetail().subscribe(
-      data => { this.userDetails=data;
+    this.route.queryParams.subscribe( params => { this.userId = params.userId; })
+    this.service.getUserDetail(this.userId).subscribe(
+      data => {
+        this.userDetails=data;
         this.functionDetails = this.service.getFormDetails(this.userDetails['functionId']);
         this.formDetails = this.service.getPersonalDetails();        
         this.formGroup1 = this.getFormGroup(this.formDetails, this.userDetails);
