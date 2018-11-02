@@ -5,8 +5,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   selector: 'app-request',
   template: `
     <H2>Select Request</H2>
-    <button (click)="navigateTo('journalist')">journalist</button>
-    <button (click)="navigateTo('athlete')">athlete</button>
+    <button class="button" (click)="navigateTo('journalist')">journalist</button>
+    <button class="button" (click)="navigateTo('athlete')">athlete</button>
     <router-outlet></router-outlet>
   `
 })

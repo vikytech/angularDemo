@@ -4,9 +4,11 @@ import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'textBox',
   template: `
-  <div [formGroup]="formG">
-    <label> {{template.label | titlecase }} </label>
-    <input formControlName="{{template.label}}" [type]="template.type"/>
+  <div class="field" [formGroup]="formG">
+    <label class="label"> {{template.label | titlecase }} </label>
+    <div class="control">
+      <input class="input" formControlName="{{template.label}}" [type]="template.type"/>
+    </div>
   </div>
   `,
   styles: []
