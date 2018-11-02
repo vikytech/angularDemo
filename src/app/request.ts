@@ -1,16 +1,4 @@
-// export class User {
-//     constructor(
-//         public firstName: String,
-//         public lastName: String,
-//         public age : Number,
-//         public id : String,
-//         public gender: String,
-//         public functionId : String,
-//         public formData : FormData
-//     ){}
-// }
-
-export class User {
+export class Request {
     id : String;
     firstName: String;
     lastName: String;

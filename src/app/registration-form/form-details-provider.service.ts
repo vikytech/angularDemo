@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { User } from '../user';
+import { Request } from '../request';
 import { Validators } from '@angular/forms';
 import { getCustomValidator } from '../validators/helper';
 import { FormGroup, FormControl } from '@angular/forms';
@@ -69,10 +69,10 @@ export class FormDetailsProviderService {
     return this.template["personalData"]
   }
 
-  getUserDetail(userId = 1): Observable<User> {
+  getUserDetail(userId = 1): Observable<Request> {
      let URL = "http://localhost:3000/users/"+userId;
       return this._httpClient.get(URL).pipe(
-        map(data => new User(data)));
+        map(data => new Request(data)));
   }
 
   getFormGroup(template){
