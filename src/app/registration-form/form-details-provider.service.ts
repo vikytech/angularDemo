@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { User } from '../user';
 import { Validators } from '@angular/forms';
 import { getCustomValidator } from '../validators/helper';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -68,10 +69,26 @@ export class FormDetailsProviderService {
     return this.template["personalData"]
   }
 
-  getUserDetail(userId : string): Observable<User> {
+  getUserDetail(userId = 1): Observable<User> {
      let URL = "http://localhost:3000/users/"+userId;
       return this._httpClient.get(URL).pipe(
         map(data => new User(data)));
+  }
+
+  getFormGroup(template){
+    const group = {};
+    for(let element of template) {
+      group[element.label] = new FormControl({ value: '', disabled: false}, this.getValidation(element.validation));
+    }
+    return new FormGroup(group);
+  }
+
+  getFormGroupWithData(template, data){
+    const group = {};
+    for(let element of template) {
+      group[element.label] = new FormControl({ value: data[element.label], disabled: false}, this.getValidation(element.validation));
+    }
+    return new FormGroup(group);
   }
 
   getValidation(validations: any[] = []): Validators {

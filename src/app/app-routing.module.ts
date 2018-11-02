@@ -7,12 +7,28 @@ import { RegistrationFormComponent } from './registration-form/registration-form
 import { FormGeneratorComponent } from './form-generator/form-generator.component';
 import { TextBoxComponent } from './FormElements/text-box.component';
 import { DropdownComponent } from './FormElements/dropdown.component';
+import { RequestComponent } from './request/request.component';
+import { JournalistFormComponent } from './journalist-form/journalist-form.component';
+import { AthleteFormComponent } from './athlete-form/athlete-form.component';
+
 
 const routes: Routes = [
   { path: '' , redirectTo: 'door', pathMatch: 'full' },
   { path: 'door' , component: DoorComponent },
   { path: 'main-door', component: MainDoorComponent},
-  { path: 'registration-form', component: RegistrationFormComponent },
+  { path: 'request', 
+    component: RequestComponent,
+    children: [
+      {path: 'journalist',
+      component: JournalistFormComponent,
+      pathMatch: 'full'
+    },
+      {path: 'athlete',
+      component: AthleteFormComponent,
+      pathMatch: 'full'
+    },
+    ]
+  },
   { path: '**', component: PageNotFoundComponent}
 ];
 
@@ -31,5 +47,8 @@ export const appRoutingComponents = [
   RegistrationFormComponent,
   FormGeneratorComponent,
   TextBoxComponent,
-  DropdownComponent
+  DropdownComponent,
+  AthleteFormComponent,
+  JournalistFormComponent,
+  RequestComponent
 ]
