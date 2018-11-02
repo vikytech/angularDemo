@@ -10,25 +10,25 @@ import { DropdownComponent } from './drop-down/dropdown.component';
 import { RequestComponent } from './request/request.component';
 import { JournalistFormComponent } from './journalist-form/journalist-form.component';
 import { AthleteFormComponent } from './athlete-form/athlete-form.component';
+import { EditRequestComponent } from './edit-request/edit-request.component';
 
 
 const routes: Routes = [
   { path: '' , redirectTo: 'door', pathMatch: 'full' },
   { path: 'door' , component: DoorComponent },
   { path: 'main-door', component: MainDoorComponent},
-  { path: 'request', 
-    component: RequestComponent,
+  { path: 'request', component: RequestComponent,
     children: [
-      {path: 'journalist',
-      component: JournalistFormComponent,
-      pathMatch: 'full'
+      {
+        path: 'journalist',
+        component: JournalistFormComponent
+      },
+      {
+        path: 'athlete',
+        component: AthleteFormComponent
+      }]
     },
-      {path: 'athlete',
-      component: AthleteFormComponent,
-      pathMatch: 'full'
-    },
-    ]
-  },
+    { path: 'request/edit/:id', component: EditRequestComponent},
   { path: '**', component: PageNotFoundComponent}
 ];
 
@@ -50,5 +50,6 @@ export const appRoutingComponents = [
   DropdownComponent,
   AthleteFormComponent,
   JournalistFormComponent,
-  RequestComponent
+  RequestComponent,
+  EditRequestComponent
 ]

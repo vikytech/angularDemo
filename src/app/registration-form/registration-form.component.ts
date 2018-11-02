@@ -6,7 +6,7 @@ import { FormGroup } from '@angular/forms';
   selector: 'app-registration-form',
   templateUrl: './registration-form.component.html',
   styleUrls: ['./registration-form.component.scss'],
-  providers: [ FormDetailsProviderService]
+  providers: [FormDetailsProviderService]
 })
 export class RegistrationFormComponent {
 
@@ -17,7 +17,7 @@ export class RegistrationFormComponent {
   public formGroup2: FormGroup;
   public userId;
   
-  constructor( private service : FormDetailsProviderService){ }
+  constructor(private service : FormDetailsProviderService){ }
 
   createForm(functionId) {
         this.functionDetails = this.service.getFormDetails(functionId);
