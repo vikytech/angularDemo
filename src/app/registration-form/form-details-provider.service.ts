@@ -20,12 +20,12 @@ export class FormDetailsProviderService {
       {
         "label": "firstName",
         "type"  : "text",
-        "validation": [{"required": true, "maxLength": 10}]
+        "validations": [{"required": true, "maxLength": 10}]
       },
        {
         "label": "lastName",
         "type"  : "text",
-        "validation": [{"minLength": 10}]
+        "validations": [{"minLength": 10}]
       },
       {
         "label":"age",
@@ -34,7 +34,7 @@ export class FormDetailsProviderService {
       {
         "label":"gender",
         "type": "dropdown",
-        "validation": [{"required": true}],
+        "validations": [{"required": true}],
         "options" : [
           "Male","Female" 
         ]
@@ -50,7 +50,7 @@ export class FormDetailsProviderService {
       {
         "label":"email",
         "type": "text",
-        "validation": [{"required": true, "custom": "emailValidation"}]
+        "validations": [{"required": true, "pattern": "", "custom": "emailValidation"}]
       },
       {
           "label":"height",
@@ -78,7 +78,7 @@ export class FormDetailsProviderService {
   getFormGroup(template){
     const group = {};
     for(let element of template) {
-      group[element.label] = new FormControl({ value: '', disabled: false}, this.getValidation(element.validation));
+      group[element.label] = new FormControl({ value: '', disabled: false}, this.getValidation(element.validations));
     }
     return new FormGroup(group);
   }
@@ -86,7 +86,7 @@ export class FormDetailsProviderService {
   getFormGroupWithData(template, data){
     const group = {};
     for(let element of template) {
-      group[element.label] = new FormControl({ value: data[element.label], disabled: false}, this.getValidation(element.validation));
+      group[element.label] = new FormControl({ value: data[element.label], disabled: false}, this.getValidation(element.validations));
     }
     return new FormGroup(group);
   }
