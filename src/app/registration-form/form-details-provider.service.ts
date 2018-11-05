@@ -6,6 +6,7 @@ import { Request } from '../request';
 import { Validators } from '@angular/forms';
 import { getCustomValidator } from '../validators/helper';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Requests } from '../requests';
 
 @Injectable({
   providedIn: 'root'
@@ -98,8 +99,19 @@ export class FormDetailsProviderService {
 
   getUserDetail(userId = 1): Observable<Request> {
      let URL = "http://localhost:3000/requests/"+userId;
-      return this._httpClient.get(URL).pipe(
+     return this.get(URL).pipe(
         map(data => new Request(data)));
+  }
+
+  getRequests(): Observable<Requests> {
+    let URL = "http://localhost:3000/requests";
+    return this.get(URL).pipe(
+      map(data => new Requests(data)
+    ));
+  }
+
+  get(url: string) {
+    return this._httpClient.get(url);
   }
 
   getFormGroup(template){
