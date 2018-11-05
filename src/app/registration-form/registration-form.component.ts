@@ -15,7 +15,6 @@ export class RegistrationFormComponent {
   public userDetails={};
   public formGroup1: FormGroup;
   public formGroup2: FormGroup;
-  public userId;
   
   constructor(private service : FormDetailsProviderService){ }
 
@@ -24,17 +23,5 @@ export class RegistrationFormComponent {
         this.formDetails = this.service.getPersonalDetails();
         this.formGroup1 = this.service.getFormGroup(this.formDetails);
         this.formGroup2 = this.service.getFormGroup(this.functionDetails);
-  }
-
-  preFillForm(userId) {
-    this.service.getUserDetail(userId).subscribe(
-      data => {
-        this.userDetails=data;
-        this.functionDetails = this.service.getFormDetails(this.userDetails['functionId']);
-        this.formDetails = this.service.getPersonalDetails();
-        this.formGroup1 = this.service.getFormGroupWithData(this.formDetails, this.userDetails);
-        this.formGroup2 = this.service.getFormGroupWithData(this.functionDetails, this.userDetails['formData']);
-     }
-     );
   }
 }

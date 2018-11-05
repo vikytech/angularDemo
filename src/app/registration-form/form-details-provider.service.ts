@@ -70,7 +70,7 @@ export class FormDetailsProviderService {
   }
 
   getUserDetail(userId = 1): Observable<Request> {
-     let URL = "http://localhost:3000/users/"+userId;
+     let URL = "http://localhost:3000/requests/"+userId;
       return this._httpClient.get(URL).pipe(
         map(data => new Request(data)));
   }
