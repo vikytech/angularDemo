@@ -48,6 +48,33 @@ export class FormDetailsProviderService {
     ],
     "athlete": [
       {
+        "label":"Organization",
+        "type": "dropdown",
+        "options" : [
+          "Male","Female" 
+        ]
+    },
+    {
+        "label":"Family Name",
+        "type":"text",
+        "validations": [{"required": true, "maxLength": 25}]
+    },
+    {
+        "label":"Given Name",
+        "type":"text",
+        "validations": [{"required": true, "maxLength": 25}]
+    },
+    {
+        "label":"Preferred Family Name",
+        "type":"text",
+        "validations": [{"required": true, "maxLength": 25}]
+    },
+    {
+        "label":"Preferred Given Name",
+        "type":"text",
+        "validations": [{"required": true, "maxLength": 25}]
+    },
+      {
         "label":"email",
         "type": "text",
         "validations": [{"required": true, "pattern": "", "custom": "emailValidation"}]
