@@ -8,7 +8,6 @@ import { FormGroup } from '@angular/forms';
 export class DropdownComponent implements OnInit {
 
   @Input() public template = {};
-  @Input() public data= {};
   @Input() public formG: FormGroup;
 
   constructor() { }

@@ -6,10 +6,9 @@
   </div>
   <nav class="menu" [ngClass]="{'active': showSideBar}">
     <ul class="menu-items">
-      <a routerLink='/door'><li (click)=toggleSideBar() class="menu-items-item">Door</li></a>
-      <a routerLink='/main-door'><li (click)=toggleSideBar() class="menu-items-item">Main Door</li></a>
-      <a routerLink='request'><li (click)=toggleSideBar() class="menu-items-item">Request</li></a>
-      <a routerLink='request/edit/1'><li (click)=toggleSideBar() class="menu-items-item">Edit-Request</li></a>
+      <a routerLink='requests'><li (click)=toggleSideBar() class="menu-items-item">Requests</li></a>
+      <a routerLink='requests/new'><li (click)=toggleSideBar() class="menu-items-item">New Request</li></a>
+      <a routerLink='requests/1/edit'><li (click)=toggleSideBar() class="menu-items-item">Edit Request</li></a>
     </ul>
   </nav>
 </div>
