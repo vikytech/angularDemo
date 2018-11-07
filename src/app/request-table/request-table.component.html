@@ -11,6 +11,9 @@
       <td *ngFor = "let header of headers">
         {{ request[header.label] }}
       </td>
+      <td>
+        <a routerLink="{{request['id']}}/edit"><button class="button"> Edit </button> </a>
+      </td>
     </tr>
   </ng-template>
 </p-table>
