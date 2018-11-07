@@ -7,6 +7,7 @@ import { Validators } from '@angular/forms';
 import { getCustomValidator } from '../validators/helper';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Requests } from '../requests';
+import { dateValidator } from "../validators/datePicker-validator";
 
 @Injectable({
   providedIn: 'root'
@@ -44,7 +45,8 @@ export class FormDetailsProviderService {
         "label":"date Of Birth",
         "type": "date",
         "min" : "1970-01-01",
-        "max" : "1994-12-12"
+        "max" : "1994-12-12",
+        "validations": [{"customDate" : {"minDate" : "1970-01-01", "maxDate" : "1994-12-12"}}]
       }
     ],
     "journalist": [
@@ -144,6 +146,7 @@ export class FormDetailsProviderService {
         if(key === "minLength") validators.push(Validators.minLength(validation[key]));
         if(key === "maxLength") validators.push(Validators.maxLength(validation[key]));
         if(key === "pattern") validators.push(Validators.pattern(validation[key]));
+        if(key === "customDate") validators.push(dateValidator(validation[key]['minDate'], validation[key]['maxDate']));
         if(key === "custom") validators.push(getCustomValidator(validation[key]));
       }
     });
