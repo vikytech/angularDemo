@@ -4,6 +4,8 @@
       <input class="input"
       formControlName="{{template.label}}"
       id="{{template.label}}"
+      [min] = "template.min"
+      [max] = "template.max"
       [type]="template.type"/>
     </div>
   </div>

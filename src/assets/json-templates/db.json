@@ -6,6 +6,7 @@
       "age": 45,
       "gender": "Female",
       "lastName": "Dunno",
+      "date Of Birth": "13/10/1996",
       "functionId": "journalist",
       "formData": {
         "magazine": "Dance India Dance"
@@ -17,6 +18,7 @@
       "age": 24,
       "gender": "Male",
       "lastName": "Tech",
+      "date Of Birth": "1/1/1994",
       "functionId": "athlete",
       "formData": {
         "height": 6.1,
@@ -29,6 +31,7 @@
       "age": 24,
       "gender": "Male",
       "lastName": "therla",
+      "date Of Birth": "19/6/1990",
       "functionId": "athlete",
       "formData": {
         "height": 6.1,

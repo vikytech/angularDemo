@@ -1,5 +1,5 @@
 <div *ngFor="let form of template" [formGroup]="formG">
-    <div *ngIf="form.type=='text' || form.type=='number'"  class="form-element">
+    <div *ngIf="form.type=='text' || form.type=='number' || form.type=='date'"  class="form-element">
     <textBox [formG]="formG" [template]="form"></textBox>
     </div>
     <div *ngIf="form.type=='dropdown'" class="form-element">
