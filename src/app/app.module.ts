@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
+import { CalendarModule } from 'primeng/calendar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { AppRoutingModule, appRoutingComponents } from './app-routing.module';
@@ -17,7 +19,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    TableModule
+    TableModule,
+    CalendarModule,
+    BrowserAnimationsModule
   ],
   providers: [ FormDetailsProviderService ],
   bootstrap: [AppComponent]

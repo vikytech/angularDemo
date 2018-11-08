@@ -10,6 +10,7 @@ import { JournalistFormComponent } from './journalist-form/journalist-form.compo
 import { AthleteFormComponent } from './athlete-form/athlete-form.component';
 import { EditRequestComponent } from './edit-request/edit-request.component';
 import { RequestTableComponent } from './request-table/request-table.component';
+import { DatePickerComponent } from './date-picker/date-picker.component';
 
 const routes: Routes = [
   { path: '' , redirectTo: 'requests', pathMatch: 'full' },
@@ -44,10 +45,11 @@ const routes: Routes = [
 export class AppRoutingModule { }
 export const appRoutingComponents = [
   PageNotFoundComponent,
-  RegistrationFormComponent,
   FormGeneratorComponent,
+  RegistrationFormComponent,
   TextBoxComponent,
   DropdownComponent,
+  DatePickerComponent,
   AthleteFormComponent,
   JournalistFormComponent,
   RequestComponent,
